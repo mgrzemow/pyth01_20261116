@@ -47,6 +47,8 @@ Podpowiedzi:
 
 """
 
+# w jaki sposób zediniować poszczególne parametry wejściowe
+
 from pprint import pprint
 
 if __name__ == '__main__':
