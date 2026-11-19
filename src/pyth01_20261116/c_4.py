@@ -18,7 +18,14 @@
 import math
 
 
-def wylicz_pole_trojkata(a, b, c):
+def wylicz_pole_trojkata(a: float, b:float, c:float) -> float | None:
+    """
+    asdasdas
+
+    asdasdasd
+    asdasd
+
+    """
     p = (a + b + c) / 2
     x = p * (p - a) * (p - b) * (p - c)
     if x < 0:
@@ -32,6 +39,7 @@ if __name__ == '__main__':
     b = float(input('Podaj bok: '))
     c = float(input('Podaj bok: '))
     s = wylicz_pole_trojkata(a, b, c)
+
     if s:
         print('Pole trójkąta:', s)
     else:

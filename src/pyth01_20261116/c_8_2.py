@@ -44,38 +44,52 @@ Podpowiedzi:
 
  Rozszerzenia ćwiczenia:
  - co by było gdyby mógł wystąpić towar o różnych jednostkach miary.
-
 """
 
-# w jaki sposób zediniować poszczególne parametry wejściowe
+import konfiguracja
 
-from pprint import pprint
 
-if __name__ == '__main__':
-    with open('towary.txt', 'rt', encoding='utf-8') as f:
-        suma = 0
-        paragon = ''
-        #
+def wczytaj_towary(nazwa_pliku: str | None = konfiguracja.PLIK_TOWARY) -> dict[tuple[str, str], list]:
+    """
+    Wczytuję torawy z pliku tekstowego.
+
+    Dalszy opis:
+1.  asddfasd **to powinno być boldem** dlaje
+2.  asdasd
+
+Args:
+    nazwa_pliku: nazwa pliku tekstem
+
+Returns:
+
+    """
+    with open(nazwa_pliku, 'rt', encoding='utf-8') as f:
         slownik_rekordow = {}
         for linia in f:
             linia = linia.strip()
-            # podzielić linię na kawałki .split
-            # przypisać do 4 zmiennych
             towar, ilosc, jm, cena = linia.split()
-
             # skonwertować
             ilosc = float(ilosc)
             cena = float(cena)
-
-            #
             ilosc_do_tej_pory = 0
             if (towar, jm) in slownik_rekordow:
                 ilosc_do_tej_pory = slownik_rekordow[(towar, jm)][0]
-            rekord = [ilosc + ilosc_do_tej_pory, cena]
-            slownik_rekordow[(towar, jm)] = rekord
+            slownik_rekordow[(towar, jm)] = [ilosc + ilosc_do_tej_pory, cena]
+    return slownik_rekordow
 
-    #
-    for (towar,jm), (ilosc, cena) in slownik_rekordow.items():
+
+def generuj_paragon(slownik_rekordow: dict[tuple[str, str], list]) -> str:
+    """
+    Generuje paragon z slownika rekordow.
+
+    Dalszy opis...
+    Dalszy opis...
+    Dalszy opis...
+    Dalszy opis...
+    """
+    paragon = ''
+    suma = 0
+    for (towar, jm), (ilosc, cena) in slownik_rekordow.items():
         # policzyć wartosc
         wartosc = round(ilosc * cena, 2)
         # zwiększyć sumę
@@ -85,38 +99,9 @@ if __name__ == '__main__':
     # wypisać podsumowanie
     paragon += '-' * 41 + '\n'
     paragon += f'SUMA: {suma:35.2f}\n'
-    print(paragon)
+    return paragon
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    slownik_rekordow = wczytaj_towary()
+    print(generuj_paragon(slownik_rekordow))

@@ -195,3 +195,6 @@ def f13(slowo):
 x = ['az', 'zebra', 'grog']
 x.sort(key=f13)
 print(x)
+
+# jak się uczyć type hintingu:
+# https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html

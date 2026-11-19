@@ -7,7 +7,9 @@ authors = [
     { name = "Michał Grzemowski", email = "mgrzemow@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pdoc3>=0.11.6",
+]
 
 [project.scripts]
 pyth01-20261116 = "pyth01_20261116:main"
