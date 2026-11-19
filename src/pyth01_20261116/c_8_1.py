@@ -1,0 +1,78 @@
+"""
+Ćwiczenie:
+
+Napisać program, który:
+
+1. Wczytuje z pliku tekstowego dane:
+ - nazwa towaru
+ - ilość towaru
+ - jednostka miary
+ - cena
+
+Plik jest w formacie:
+Banany 2.4 kg 3.5
+Kiwi 3 szt 2.3
+Piwo 4 szt 2.4
+Kiwi 3 szt 2.3
+Kiwi 4.5 kg 11.5
+
+
+2. Po każdym towarze program dodaje dane do listy zakupów w formacie:
+[
+['chleb', 3, 'szt', 4.6],
+['cebula', 1.55, 'kg', 2.5]
+]
+
+3. Używając danych z listy stworzonej w pkt 2 wypisuje na ekran paragon w formie:
+Pietruszka  2.0 kg x 4.60     9.20
+Banany      3.0 kg x  3.5    10.50
+----------------------------------
+SUMA:                        19.70
+
+Kolumny mają mieć szerokości:
+nazwa - 12 znaków,
+ilość - 2 znaki przed kropką i 2 po
+jednostka miary - 4 znaki
+cena - 3 znaki przed kropką i 2 po
+wartość pozycji - 5 znaków przed kropką i 2 po
+SUMA - 7 znaków przed kropką i 2 po
+
+Podpowiedzi:
+ - pętla for
+ - formatowanie f-stringow
+"""
+from pprint import pprint
+
+if __name__ == '__main__':
+    with open('towary.txt', 'rt', encoding='utf-8') as f:
+        suma = 0
+        paragon = ''
+        lista_rekordow = []
+        for linia in f:
+            linia = linia.strip()
+            # podzielić linię na kawałki .split
+            # przypisać do 4 zmiennych
+            towar, ilosc, jm, cena = linia.split()
+
+            # skonwertować
+            ilosc = float(ilosc)
+            cena = float(cena)
+
+            # TU !!!
+            rekord = [towar, ilosc, jm, cena]
+
+            lista_rekordow.append(rekord)
+
+    pprint(lista_rekordow)
+
+    for towar, ilosc, jm, cena in lista_rekordow:
+        # policzyć wartosc
+        wartosc = round(ilosc * cena, 2)
+        # zwiększyć sumę
+        suma = round(suma + wartosc, 2)
+        # wyprodukować linię paragonu
+        paragon += f'{towar:12} {ilosc:5.2f} {jm:4} x {cena:6.2f} {wartosc:8.2f}\n'
+    # wypisać podsumowanie
+    paragon += '-' * 41 + '\n'
+    paragon += f'SUMA: {suma:35.2f}\n'
+    print(paragon)

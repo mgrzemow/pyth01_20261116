@@ -1,0 +1,17 @@
+[project]
+name = "pyth01-20261116"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Michał Grzemowski", email = "mgrzemow@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+pyth01-20261116 = "pyth01_20261116:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
