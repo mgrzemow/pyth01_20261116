@@ -5,6 +5,8 @@ Zamień na godziny, minuty i sekundy.
 Przypomnienie - operatory // i %
 """
 
+# zbuduj funkcję zrwacającą krotkę
+
 if __name__ == '__main__':
     sekundy = 98765
     godziny = sekundy // (60 * 60)

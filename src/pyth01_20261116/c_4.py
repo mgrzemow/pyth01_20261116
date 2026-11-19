@@ -17,14 +17,22 @@
 """
 import math
 
+
+def wylicz_pole_trojkata(a, b, c):
+    p = (a + b + c) / 2
+    x = p * (p - a) * (p - b) * (p - c)
+    if x < 0:
+        return None
+    else:
+        return math.sqrt(x)
+
+
 if __name__ == '__main__':
     a = float(input('Podaj bok: '))
     b = float(input('Podaj bok: '))
     c = float(input('Podaj bok: '))
-    p = (a + b + c) / 2
-    x = p * (p - a) * (p - b) * (p - c)
-    if x < 0:
-        print('Takiego trójkąta nie da się zbudować')
-    else:
-        s = math.sqrt(x)
+    s = wylicz_pole_trojkata(a, b, c)
+    if s:
         print('Pole trójkąta:', s)
+    else:
+        print(f'Z boków {a}, {b}, {c} nie da się zbudować trójkąta.')
