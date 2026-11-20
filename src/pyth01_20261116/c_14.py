@@ -7,8 +7,10 @@ koszyk_walut = [
     ('CHF', 1000),
     ('NZD', 2200),
     ('AUD', 3000),
-]
+] * 100
 
+# * jak można to zoptymalizować?
+# ** jak czytać jednocześnie?
 
 def wycen_koszyk(koszyk_walut: list[tuple[str, float]]) -> float:
     ...
