@@ -18,16 +18,23 @@
 import math
 
 
-def wylicz_pole_trojkata(a: float, b:float, c:float) -> float | None:
+# float | None jako hint typu (zamiast Optional[float]) - wymaga Pythona >= 3.10
+def wylicz_pole_trojkata(a: float, b: float, c: float) -> float | None:
     """
-    asdasdas
+    Liczy pole trójkąta ze wzoru Herona.
 
-    asdasdasd
-    asdasd
+    Args:
+        a: długość pierwszego boku
+        b: długość drugiego boku
+        c: długość trzeciego boku
 
+    Returns:
+        pole trójkąta albo `None`, gdy z podanych boków nie da się
+        zbudować trójkąta (wyrażenie pod pierwiastkiem jest ujemne)
     """
     p = (a + b + c) / 2
     x = p * (p - a) * (p - b) * (p - c)
+    # ujemna wartość pod pierwiastkiem = nierówność trójkąta nie jest spełniona
     if x < 0:
         return None
     else:
@@ -40,6 +47,8 @@ if __name__ == '__main__':
     c = float(input('Podaj bok: '))
     s = wylicz_pole_trojkata(a, b, c)
 
+    # if s: korzysta z "prawdziwości" obiektu - None i 0.0 są fałszywe,
+    # więc trójkąt zdegenerowany (pole 0) też trafi do else
     if s:
         print('Pole trójkąta:', s)
     else:

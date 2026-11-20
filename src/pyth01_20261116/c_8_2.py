@@ -52,24 +52,38 @@ Kolumny mają mieć szerokości:
 ### Rozszerzenia ćwiczenia:
 
  - co by było gdyby mógł wystąpić towar o różnych jednostkach miary.
+
+### Rozwiązanie
+
+Wersja 3: kod podzielony na dwie funkcje (czytanie danych i generowanie
+paragonu), a nazwa pliku z danymi pochodzi z modułu `konfiguracja`.
+Rozszerzenie z różnymi jednostkami miary rozwiązano kluczem słownika
+w postaci krotki `(towar, jm)`.
 """
 
-import konfiguracja
+# import absolutny przez nazwę pakietu - działa i przy uruchomieniu tego
+# pliku jako skryptu, i przy imporcie `pyth01_20261116.c_8_2` z innego miejsca
+# (samo `import konfiguracja` działało tylko z katalogu pakietu)
+from pyth01_20261116 import konfiguracja
 
 
-def wczytaj_towary(nazwa_pliku: str | None = konfiguracja.PLIK_TOWARY) -> dict[tuple[str, str], list]:
+# dict[tuple[str, str], list[float]] - generyki wbudowanych typów w hintach,
+# wymaga Pythona >= 3.9
+def wczytaj_towary(nazwa_pliku: str = konfiguracja.PLIK_TOWARY) -> dict[tuple[str, str], list[float]]:
     """
-    Wczytuję towary z pliku tekstowego.
+    Wczytuje towary z pliku tekstowego i sumuje ilości powtarzających się pozycji.
 
-    Dalszy opis:
-
-    1.  asddfasd **to powinno być boldem** a to *italikiem* blabla
-    2.  asdasd
+    Każda linia pliku ma postać `towar ilość jednostka cena`. Pozycje o tej
+    samej nazwie **i** tej samej jednostce są łączone (ilości sumowane),
+    dzięki czemu `Kiwi 3 szt` i `Kiwi 4.5 kg` zostają osobnymi pozycjami.
 
     Args:
-        nazwa_pliku: nazwa pliku tekstem
+        nazwa_pliku: ścieżka do pliku z towarami; domyślnie
+            `konfiguracja.PLIK_TOWARY` (wartość domyślna jest obliczana
+            raz, w momencie definicji funkcji)
 
-    Returns: **słownik z danymi**
+    Returns:
+        słownik `{(towar, jednostka): [ilość, cena]}`
     """
     with open(nazwa_pliku, 'rt', encoding='utf-8') as f:
         slownik_rekordow = {}
@@ -80,23 +94,27 @@ def wczytaj_towary(nazwa_pliku: str | None = konfiguracja.PLIK_TOWARY) -> dict[t
             ilosc = float(ilosc)
             cena = float(cena)
             ilosc_do_tej_pory = 0
+            # kluczem słownika może być krotka, bo jest niemutowalna (hashowalna)
             if (towar, jm) in slownik_rekordow:
                 ilosc_do_tej_pory = slownik_rekordow[(towar, jm)][0]
             slownik_rekordow[(towar, jm)] = [ilosc + ilosc_do_tej_pory, cena]
     return slownik_rekordow
 
 
-def generuj_paragon(slownik_rekordow: dict[tuple[str, str], list]) -> str:
+def generuj_paragon(slownik_rekordow: dict[tuple[str, str], list[float]]) -> str:
     """
-    Generuje paragon z slownika rekordow.
+    Buduje tekst paragonu ze słownika towarów.
 
-    Dalszy opis...
-    Dalszy opis...
-    Dalszy opis...
-    Dalszy opis...
+    Args:
+        slownik_rekordow: słownik w formacie zwracanym przez `wczytaj_towary`
+
+    Returns:
+        wieloliniowy napis: po jednej linii na pozycję, linia z kreskami
+        i linia `SUMA:` na końcu
     """
     paragon = ''
     suma = 0
+    # zagnieżdżony unpacking: klucz to krotka (towar, jm), wartość to [ilosc, cena]
     for (towar, jm), (ilosc, cena) in slownik_rekordow.items():
         # policzyć wartosc
         wartosc = round(ilosc * cena, 2)

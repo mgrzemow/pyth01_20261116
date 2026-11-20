@@ -20,6 +20,9 @@ if __name__ == '__main__':
     b2 = 2 ** .5
     b3 = float(input('podaj bok: '))
 
+    # liczby zmiennoprzecinkowe są przybliżeniami (0.1 + 0.1 + 0.1 != 0.3),
+    # dlatego zamiast == porównujemy je przez math.isclose
+    # \ na końcu linii kontynuuje instrukcję w następnej linii
     if math.isclose(b2 ** 2, b1 ** 2 + b3 ** 2) or \
             math.isclose(b3 ** 2, b1 ** 2 + b2 ** 2):
         print('prostokatny')

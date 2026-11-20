@@ -19,6 +19,8 @@ Rozszerzenia ćwiczenia:
 if __name__ == '__main__':
 
     lista_imion = []
+    # operator walrus := przypisuje i zwraca wartość w jednym wyrażeniu
+    # (patrz petla_while.py) - wymaga Pythona >= 3.8
     while (imie := input('Podaj imie: ')) != 'koniec':
         lista_imion.append(imie)
 

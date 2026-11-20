@@ -13,6 +13,10 @@
 
 Podpowiedzi:
  - nazwę domeny można wyciąć z adresu znajdując znak @
+
+Idea: słownik grupuje (klucz = domena), a zbiór jako wartość sam usuwa
+duplikaty. To ten sam wzorzec "grupowania" co w `slowniki_agregaccja.py`.
+Skrypt czyta `emails.txt` i tworzy pliki `<domena>.txt` w bieżącym katalogu.
 """
 from pprint import pprint
 
@@ -20,15 +24,19 @@ if __name__ == '__main__':
     with open('emails.txt', 'rt', encoding='utf-8') as f:
         slownik_maili = {}
         for linia in f:
+            # łańcuch metod: każda zwraca nowy napis, który przetwarza następna
+            # removesuffix - wymaga Pythona >= 3.9
             linia = linia.strip().removesuffix(',').lower()
             if '@' in linia:
                 print(linia)
                 # wydłubać domenę
+                # unpacking do dwóch zmiennych; _ = "login mnie nie interesuje"
                 _, domena = linia.split('@')
                 # sprawdzić czy jest w słowniku
                 if domena not in slownik_maili:
                     slownik_maili[domena] = set()
                 # dodac
+                # (add na zbiorze ignoruje duplikaty - stąd brak sprawdzania)
                 slownik_maili[domena].add(linia)
     pprint(slownik_maili)
     # dla wszystkich domen

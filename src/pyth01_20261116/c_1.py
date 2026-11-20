@@ -12,4 +12,5 @@ Napisać program, który:
 
 if __name__ == '__main__':
     imie = input('Podaj swoje imię: ')
+    # print z kilkoma argumentami rozdziela je spacją (parametr sep=' ')
     print('Cześć', imie, 'witaj na kursie.')

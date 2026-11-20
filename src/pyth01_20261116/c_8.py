@@ -37,6 +37,9 @@ Podpowiedzi:
 
 Rozszerzenie ćwiczenia:
  - zebrać paragon w wieloliniowym stringu i wypisać na sam koniec
+
+Wersja 1 (jednoprzebiegowa): paragon budowany od razu podczas czytania pliku.
+Skrypt czyta `towary.txt` z bieżącego katalogu.
 """
 
 if __name__ == '__main__':
@@ -47,17 +50,21 @@ if __name__ == '__main__':
             linia = linia.strip()
             # podzielić linię na kawałki .split
             # przypisać do 4 zmiennych
-            towar, ilosc, jm, cena  = linia.split()
+            # (unpacking - split musi zwrócić dokładnie 4 elementy)
+            towar, ilosc, jm, cena = linia.split()
 
             # skonwertować
             ilosc = float(ilosc)
             cena = float(cena)
-            
+
             # policzyć wartosc
             wartosc = round(ilosc * cena, 2)
             # zwiększyć sumę
+            # (zaokrąglamy po każdym dodaniu, żeby nie kumulować błędów float)
             suma = round(suma + wartosc, 2)
             # wyprodukować linię paragonu
+            # specyfikacja formatu: :12 - szerokość 12 (napisy do lewej),
+            # :5.2f - szerokość 5, 2 miejsca po kropce (liczby do prawej)
             paragon += f'{towar:12} {ilosc:5.2f} {jm:4} x {cena:6.2f} {wartosc:8.2f}\n'
         # wypisać podsumowanie
         paragon += '-' * 41 + '\n'

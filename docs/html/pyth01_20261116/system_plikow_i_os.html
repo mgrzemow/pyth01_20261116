@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>pyth01_20261116.system_plikow_i_os API documentation</title>
+<meta name="description" content="Python idzie w kierunku biblioteki pathlib jeśli chodzi o pliki …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyth01_20261116.system_plikow_i_os</code></h1>
+</header>
+<section id="section-intro">
+<p>Python idzie w kierunku biblioteki pathlib jeśli chodzi o pliki.</p>
+<p>Obsługa plików w Pythonie (pathlib) - demo na ok. 15 minut.</p>
+<p>ZAŁOŻENIE: Python 3.14 lub nowszy (metody <code>Path.copy</code>, <code>copy_into</code>, <code>move</code>,
+<code>move_into</code> pojawiły się dopiero w 3.14).</p>
+<p>Uruchomienie:
+python system_plikow_i_os.py</p>
+<p>Skrypt tworzy w bieżącym katalogu podkatalog tmp__files, wykonuje w nim
+wszystkie operacje i na koniec go usuwa. Bieżący katalog zostaje po
+uruchomieniu bez zmian. Jeżeli tmp__files już istnieje, skrypt niczego
+nie rusza i kończy pracę.</p>
+<p>Każdy punkt planu to osobna funkcja <code>sekcja_N_&hellip;</code>, a <code><a title="pyth01_20261116.system_plikow_i_os.main" href="#pyth01_20261116.system_plikow_i_os.main">main()</a></code> przygotowuje
+katalog roboczy i woła sekcje po kolei. Dzięki temu moduł można importować
+(i dokumentować) bez skutków ubocznych, a na zajęciach uruchamiać sekcje
+pojedynczo.</p>
+<p>Plan (czas w minutach):
+1. Ścieżki
+3
+2. Czytanie i pisanie
+2
+3. Podstawowe operacje na plikach
+3
+4. ZIP
+2
+5. glob
+1,5
+6. Chodzenie po katalogach
+1,5
+7. Inne użyteczne z os i sys
+2</p>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="pyth01_20261116.system_plikow_i_os.NAZWA_TMP"><code class="name">var <span class="ident">NAZWA_TMP</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Nazwa katalogu roboczego tworzonego w bieżącym katalogu.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pyth01_20261116.system_plikow_i_os.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main() -&gt; None:
+    &#34;&#34;&#34;Przygotowuje katalog roboczy i uruchamia wszystkie sekcje po kolei.&#34;&#34;&#34;
+    tmp = przygotuj_katalog_roboczy()
+    sekcja_1_sciezki(tmp)
+    sekcja_2_czytanie_i_pisanie(tmp)
+    sekcja_3_operacje_na_plikach(tmp)
+    projekt = sekcja_4_zip(tmp)
+    sekcja_5_glob(projekt)
+    sekcja_6_chodzenie_po_katalogach(projekt)
+    sekcja_7_os_i_sys(tmp)
+    print(&#34;\nKoniec - katalog tmp__files zostanie teraz usunięty.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Przygotowuje katalog roboczy i uruchamia wszystkie sekcje po kolei.</p></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.przygotuj_katalog_roboczy"><code class="name flex">
+<span>def <span class="ident">przygotuj_katalog_roboczy</span></span>(<span>) ‑> pathlib.Path</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def przygotuj_katalog_roboczy() -&gt; Path:
+    &#34;&#34;&#34;
+    Tworzy katalog roboczy `tmp__files` w bieżącym katalogu i rejestruje jego usunięcie.
+
+    Returns:
+        bezwzględna ścieżka do katalogu roboczego
+
+    Raises:
+        SystemExit: gdy katalog już istnieje (nie kasujemy cudzych danych)
+    &#34;&#34;&#34;
+    # Katalog roboczy: bezwzględna ścieżka do tmp__files w bieżącym katalogu.
+    tmp = Path.cwd() / NAZWA_TMP
+
+    if tmp.exists():
+        # Nie kasujemy cudzych danych: sprzątamy tylko to, co sami utworzyliśmy.
+        # sys.exit z napisem wypisuje go na stderr i kończy z kodem 1
+        sys.exit(f&#34;Katalog {tmp} już istnieje - usuń go albo uruchom skrypt gdzie indziej.&#34;)
+
+    tmp.mkdir()
+
+    # Sprzątanie: ta funkcja wykona się przy zakończeniu programu,
+    # także wtedy, gdy skrypt przerwie się błędem.
+    # atexit.register(funkcja, *argumenty) - wywołanie odłożone na koniec procesu
+    atexit.register(shutil.rmtree, tmp)
+    return tmp</code></pre>
+</details>
+<div class="desc"><p>Tworzy katalog roboczy <code>tmp__files</code> w bieżącym katalogu i rejestruje jego usunięcie.</p>
+<p>Returns
+-----=
+bezwzględna ścieżka do katalogu roboczego</p>
+<dl>
+<dt>Raises</dt>
+<dt>-----=</dt>
+<dt><code>SystemExit</code></dt>
+<dd>gdy katalog już istnieje (nie kasujemy cudzych danych)</dd>
+</dl></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_1_sciezki"><code class="name flex">
+<span>def <span class="ident">sekcja_1_sciezki</span></span>(<span>tmp: pathlib.Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_1_sciezki(tmp: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Ścieżki jako obiekty `Path`: budowanie operatorem `/`, rozbieranie
+    atrybutami, warianty, pytania o ścieżkę, normalizacja.
+
+    Args:
+        tmp: katalog roboczy
+    &#34;&#34;&#34;
+    # Ścieżka to obiekt Path, a nie napis. Buduje się ją operatorem /,
+    # rozbiera atrybutami. Ten sam kod działa na Windowsie, Linuksie i macOS.
+    print(&#34;\n=== 1. Ścieżki ===&#34;)
+
+    # --- skąd zacząć ---
+    print(Path.cwd())                        # bieżący katalog
+    print(Path.home())                       # katalog domowy użytkownika
+
+    # Tak najczęściej!!!
+    # __file__ to ścieżka do bieżącego pliku .py (ustawia ją import/uruchomienie)
+    print(Path(__file__).resolve().parent)   # katalog, w którym leży ten skrypt
+
+    # Ścieżki względne liczą się od bieżącego katalogu procesu, a nie od
+    # położenia skryptu - dlatego w skryptach warto zaczynać od Path(__file__).
+
+    # --- budowanie ---
+    # operator / jest przeciążony (metoda specjalna __truediv__) i skleja człony
+    p = tmp / &#34;dane&#34; / &#34;raport.tar.gz&#34;
+    print(p)
+
+    # --- rozbieranie ---
+    print(p.name)        # raport.tar.gz
+    print(p.stem)        # raport.tar
+    print(p.suffix)      # .gz
+    print(p.suffixes)    # [&#39;.tar&#39;, &#39;.gz&#39;]
+    print(p.parent)      # .../tmp__files/dane
+    print(p.parts)       # krotka wszystkich członów ścieżki
+
+    # --- warianty tej samej ścieżki ---
+    # Path jest niemutowalny: with_* i operator / zwracają NOWY obiekt
+    # i niczego nie zmieniają na dysku.
+    print(p.with_name(&#34;inny.txt&#34;))     # .../dane/inny.txt
+    print(p.with_suffix(&#34;.zip&#34;))       # .../dane/raport.tar.zip
+    print(p.with_stem(&#34;kopia&#34;))        # .../dane/kopia.gz   (with_stem - wymaga Pythona &gt;= 3.9)
+
+    # --- pytania o ścieżkę ---
+    # Samo utworzenie Path(...) nie sprawdza, czy plik istnieje.
+    print(p.exists())                  # False - jeszcze go nie ma
+    print(tmp.is_dir())                # True
+    print(tmp.is_file())               # False
+    print(p.is_absolute())             # True
+    print(p.relative_to(tmp))          # dane/raport.tar.gz
+    print(p.is_relative_to(tmp))       # True   (is_relative_to - wymaga Pythona &gt;= 3.9)
+
+    # --- normalizacja ---
+    print(Path(&#34;~/notatki.txt&#34;).expanduser())    # rozwija ~ do katalogu domowego
+    print((tmp / &#34;a&#34; / &#34;..&#34; / &#34;b&#34;).resolve())    # bezwzględna, bez .. -&gt; .../tmp__files/b
+    print(p.as_posix())                          # napis z ukośnikami /
+    print(str(p))                                # napis w stylu systemu - gdy biblioteka chce str</code></pre>
+</details>
+<div class="desc"><p>Ścieżki jako obiekty <code>Path</code>: budowanie operatorem <code>/</code>, rozbieranie
+atrybutami, warianty, pytania o ścieżkę, normalizacja.</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>tmp</code></strong></dt>
+<dd>katalog roboczy</dd>
+</dl></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_2_czytanie_i_pisanie"><code class="name flex">
+<span>def <span class="ident">sekcja_2_czytanie_i_pisanie</span></span>(<span>tmp: pathlib.Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_2_czytanie_i_pisanie(tmp: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Czytanie i zapis całych plików metodami `Path`, dane binarne, dopisywanie,
+    czytanie linia po linii, JSON.
+
+    Args:
+        tmp: katalog roboczy
+    &#34;&#34;&#34;
+    # Mały plik czyta się i zapisuje jedną metodą Path. open() jest potrzebne
+    # dopiero przy dużych plikach i przy dopisywaniu.
+    print(&#34;\n=== 2. Czytanie i pisanie ===&#34;)
+
+    notatki = tmp / &#34;notatki.txt&#34;
+
+    # --- całość naraz ---
+    # write_text tworzy plik albo go NADPISUJE, bez pytania.
+    # Zawsze podawaj encoding=&#34;utf-8&#34;: w Pythonie 3.14 domyślne jest kodowanie
+    # systemowe (na polskim Windowsie zwykle cp1250) i polskie znaki się psują.
+    notatki.write_text(&#34;pierwsza linia: zażółć\ndruga linia: gęślą jaźń\n&#34;, encoding=&#34;utf-8&#34;)
+
+    tekst = notatki.read_text(encoding=&#34;utf-8&#34;)
+    print(tekst)
+    print(tekst.splitlines())          # lista linii bez znaków końca linii
+
+    # --- dane binarne ---
+    kopia_bin = tmp / &#34;notatki_kopia.bin&#34;
+    kopia_bin.write_bytes(notatki.read_bytes())
+    print(len(kopia_bin.read_bytes()))   # rozmiar w bajtach
+
+    # --- dopisywanie na końcu ---
+    # Tryby: &#34;r&#34; czytanie, &#34;w&#34; zapis od zera, &#34;a&#34; dopisywanie,
+    # &#34;x&#34; zapis tylko gdy pliku nie ma; z dopiskiem &#34;b&#34; binarnie.
+    # notatki.open(...) to to samo co open(notatki, ...).
+    # Blok with sam zamyka plik, także po wyjątku.
+    with notatki.open(&#34;a&#34;, encoding=&#34;utf-8&#34;) as f:
+        f.write(&#34;trzecia linia: dopisana\n&#34;)
+
+    # --- duży plik: linia po linii, bez wczytywania całości do pamięci ---
+    # obiekt pliku jest iterowalny - for daje kolejne linie z &#39;\n&#39; na końcu
+    with notatki.open(encoding=&#34;utf-8&#34;) as f:
+        for linia in f:
+            print(linia.rstrip())
+
+    # --- formaty strukturalne idą tym samym torem ---
+    dane = {&#34;kurs&#34;: &#34;Python&#34;, &#34;tematy&#34;: [&#34;pathlib&#34;, &#34;zip&#34;, &#34;glob&#34;], &#34;minut&#34;: 15}
+    plik_json = tmp / &#34;dane.json&#34;
+    plik_json.write_text(json.dumps(dane, ensure_ascii=False, indent=2), encoding=&#34;utf-8&#34;)
+    print(json.loads(plik_json.read_text(encoding=&#34;utf-8&#34;)))</code></pre>
+</details>
+<div class="desc"><p>Czytanie i zapis całych plików metodami <code>Path</code>, dane binarne, dopisywanie,
+czytanie linia po linii, JSON.</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>tmp</code></strong></dt>
+<dd>katalog roboczy</dd>
+</dl></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_3_operacje_na_plikach"><code class="name flex">
+<span>def <span class="ident">sekcja_3_operacje_na_plikach</span></span>(<span>tmp: pathlib.Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_3_operacje_na_plikach(tmp: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Tworzenie katalogów i plików, `stat`, zmiana nazwy, kopiowanie,
+    przenoszenie i usuwanie.
+
+    Args:
+        tmp: katalog roboczy
+    &#34;&#34;&#34;
+    # Tworzenie, kopiowanie, przenoszenie, usuwanie i informacje o pliku
+    # załatwia sam Path. shutil zostaje tylko do usuwania całych drzew.
+    print(&#34;\n=== 3. Podstawowe operacje na plikach ===&#34;)
+
+    # --- tworzenie katalogów ---
+    # Wzorzec do zapamiętania: tworzy też katalogi pośrednie i nie zgłasza
+    # błędu, gdy katalog już istnieje.
+    kat = tmp / &#34;wyniki&#34; / &#34;2026&#34; / &#34;listopad&#34;
+    kat.mkdir(parents=True, exist_ok=True)
+
+    backup = tmp / &#34;backup&#34;
+    backup.mkdir()
+
+    # --- pusty plik ---
+    log = kat / &#34;log.txt&#34;
+    log.touch()                        # tworzy pusty plik albo odświeża datę
+    log.write_text(&#34;start\n&#34;, encoding=&#34;utf-8&#34;)
+
+    # --- informacje ---
+    info = log.stat()
+    print(info.st_size)                              # rozmiar w bajtach
+    print(datetime.fromtimestamp(info.st_mtime))     # data modyfikacji
+
+    # --- zmiana nazwy ---
+    # rename zwraca nową ścieżkę. Na Windowsie rzuca błąd, gdy cel istnieje,
+    # na Linuksie go nadpisuje. replace wszędzie zachowuje się tak samo:
+    # nadpisuje. Oba działają w obrębie jednego dysku.
+    log = log.rename(kat / &#34;log_stary.txt&#34;)
+    log = log.replace(kat / &#34;archiwum.txt&#34;)
+    print(log)                         # .../listopad/archiwum.txt
+
+    # --- kopiowanie ---
+    # Działa tak samo dla pliku i dla całego katalogu; zwraca nową ścieżkę.
+    # Path.copy / copy_into - wymaga Pythona &gt;= 3.14 (wcześniej shutil.copy2 / copytree)
+    kopia = log.copy(kat / &#34;kopia.txt&#34;)              # kopia pod nową nazwą
+    log.copy_into(backup)                            # do katalogu, pod tą samą nazwą
+    (tmp / &#34;wyniki&#34;).copy(tmp / &#34;wyniki_kopia&#34;)      # cały katalog z podkatalogami
+
+    # --- przenoszenie ---
+    # W odróżnieniu od rename działa też między dyskami.
+    # Path.move / move_into - wymaga Pythona &gt;= 3.14 (wcześniej shutil.move)
+    kopia = kopia.move(backup / &#34;kopia2.txt&#34;)        # przeniesienie ze zmianą nazwy
+    kopia = kopia.move_into(kat)                     # do katalogu, pod tą samą nazwą
+    print(kopia)                       # .../listopad/kopia2.txt
+
+    # --- usuwanie ---
+    # Usuwanie jest natychmiastowe i omija kosz.
+    kopia.unlink()                                       # plik
+    # unlink(missing_ok=True) - wymaga Pythona &gt;= 3.8
+    (kat / &#34;nie_ma_mnie.txt&#34;).unlink(missing_ok=True)    # bez błędu, gdy pliku nie ma
+
+    pusty = tmp / &#34;pusty&#34;
+    pusty.mkdir()
+    pusty.rmdir()                      # katalog - tylko pusty
+
+    # Path nie ma metody do usuwania niepustego katalogu: zawsze shutil.rmtree.
+    # Kasuje wszystko pod wskazaną ścieżką, więc ścieżkę warto najpierw
+    # wypisać i sprawdzić.
+    shutil.rmtree(tmp / &#34;wyniki_kopia&#34;)
+    print((tmp / &#34;wyniki_kopia&#34;).exists())   # False</code></pre>
+</details>
+<div class="desc"><p>Tworzenie katalogów i plików, <code>stat</code>, zmiana nazwy, kopiowanie,
+przenoszenie i usuwanie.</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>tmp</code></strong></dt>
+<dd>katalog roboczy</dd>
+</dl></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_4_zip"><code class="name flex">
+<span>def <span class="ident">sekcja_4_zip</span></span>(<span>tmp: pathlib.Path) ‑> pathlib.Path</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_4_zip(tmp: Path) -&gt; Path:
+    &#34;&#34;&#34;
+    Pakowanie i rozpakowywanie katalogu przez `shutil` oraz wybiórcze
+    pakowanie i zaglądanie do archiwum przez `zipfile`.
+
+    Tworzy też przykładowy projekt z podkatalogami, używany przez sekcje 5 i 6.
+
+    Args:
+        tmp: katalog roboczy
+
+    Returns:
+        ścieżka do przykładowego projektu `tmp__files/projekt`
+    &#34;&#34;&#34;
+    # Najwygodniej: dwie funkcje z shutil. make_archive pakuje katalog razem
+    # z podkatalogami, unpack_archive go odtwarza.
+    print(&#34;\n=== 4. ZIP ===&#34;)
+
+    # przykładowy projekt z podkatalogami (przyda się też w blokach 5 i 6)
+    projekt = tmp / &#34;projekt&#34;
+    (projekt / &#34;src&#34; / &#34;pakiet&#34;).mkdir(parents=True)
+    (projekt / &#34;dane&#34;).mkdir()
+    (projekt / &#34;README.md&#34;).write_text(&#34;# Projekt demo\n&#34;, encoding=&#34;utf-8&#34;)
+    (projekt / &#34;src&#34; / &#34;main.py&#34;).write_text(&#34;print(&#39;hej&#39;)\n&#34;, encoding=&#34;utf-8&#34;)
+    (projekt / &#34;src&#34; / &#34;main.pyc&#34;).write_bytes(b&#34;\x00\x01&#34;)
+    (projekt / &#34;src&#34; / &#34;pakiet&#34; / &#34;__init__.py&#34;).write_text(&#34;&#34;, encoding=&#34;utf-8&#34;)
+    (projekt / &#34;src&#34; / &#34;pakiet&#34; / &#34;narzedzia.py&#34;).write_text(&#34;X = 1\n&#34;, encoding=&#34;utf-8&#34;)
+    (projekt / &#34;dane&#34; / &#34;wynik_1.csv&#34;).write_text(&#34;id;wartosc\n1;10\n&#34;, encoding=&#34;utf-8&#34;)
+    (projekt / &#34;dane&#34; / &#34;wynik_2.csv&#34;).write_text(&#34;id;wartosc\n2;20\n&#34;, encoding=&#34;utf-8&#34;)
+    (projekt / &#34;dane&#34; / &#34;wynik_3.csv&#34;).write_text(&#34;id;wartosc\n3;30\n&#34;, encoding=&#34;utf-8&#34;)
+
+    # --- pakowanie ---
+    # Pierwszy argument to nazwa BEZ rozszerzenia (.zip dopisuje się samo),
+    # funkcja zwraca pełną ścieżkę archiwum. Archiwum twórz poza pakowanym
+    # katalogiem, inaczej może zacząć pakować samo siebie.
+    archiwum = shutil.make_archive(tmp / &#34;backup_projektu&#34;, &#34;zip&#34;, root_dir=projekt)
+    print(archiwum)                    # .../tmp__files/backup_projektu.zip
+
+    # To samo, ale z katalogiem projekt/ jako folderem głównym w archiwum:
+    shutil.make_archive(tmp / &#34;backup_z_folderem&#34;, &#34;zip&#34;, root_dir=tmp, base_dir=&#34;projekt&#34;)
+
+    # Ten sam make_archive robi też &#34;tar&#34;, &#34;gztar&#34;, &#34;bztar&#34; i &#34;xztar&#34;.
+
+    # --- rozpakowanie ---
+    # unpack_archive rozpoznaje format po rozszerzeniu i sam tworzy katalog.
+    shutil.unpack_archive(archiwum, tmp / &#34;odtworzone&#34;)
+    print((tmp / &#34;odtworzone&#34; / &#34;src&#34; / &#34;main.py&#34;).exists())   # True
+
+    # --- gdy trzeba wybrać, co trafia do archiwum: moduł zipfile ---
+    # Bez ZIP_DEFLATED zipfile zapisuje pliki bez kompresji.
+    # ZipFile jest menedżerem kontekstu - with domyka archiwum (zapisuje indeks)
+    with zipfile.ZipFile(tmp / &#34;tylko_zrodla.zip&#34;, &#34;w&#34;, zipfile.ZIP_DEFLATED) as z:
+        for plik in projekt.rglob(&#34;*&#34;):
+            if plik.is_file() and plik.suffix != &#34;.pyc&#34;:
+                z.write(plik, plik.relative_to(projekt))    # drugi argument = nazwa w archiwum
+
+    # --- zaglądanie do środka bez rozpakowywania ---
+    with zipfile.ZipFile(tmp / &#34;tylko_zrodla.zip&#34;) as z:
+        print(z.namelist())                          # lista plików, bez main.pyc
+        print(z.read(&#34;README.md&#34;).decode(&#34;utf-8&#34;))   # jeden plik prosto do pamięci
+        z.extractall(tmp / &#34;odtworzone_wybrane&#34;)     # wszystko na dysk
+
+    return projekt</code></pre>
+</details>
+<div class="desc"><p>Pakowanie i rozpakowywanie katalogu przez <code>shutil</code> oraz wybiórcze
+pakowanie i zaglądanie do archiwum przez <code>zipfile</code>.</p>
+<p>Tworzy też przykładowy projekt z podkatalogami, używany przez sekcje 5 i 6.</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>tmp</code></strong></dt>
+<dd>katalog roboczy</dd>
+</dl>
+<p>Returns
+-----=
+ścieżka do przykładowego projektu <code>tmp__files/projekt</code></p></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_5_glob"><code class="name flex">
+<span>def <span class="ident">sekcja_5_glob</span></span>(<span>projekt: pathlib.Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_5_glob(projekt: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Szukanie plików wzorcem: `Path.glob`, `Path.rglob`, `Path.match`.
+
+    Args:
+        projekt: przykładowy projekt utworzony w `sekcja_4_zip`
+    &#34;&#34;&#34;
+    # Path.glob szuka w jednym katalogu, Path.rglob w całym drzewie.
+    # Oba zwracają gotowe obiekty Path.
+    #
+    #   *          dowolny ciąg znaków w obrębie jednej nazwy     *.txt
+    #   ?          dokładnie jeden znak                           log_?.txt
+    #   [abc][0-9] jeden znak z podanego zbioru                   dane_[0-9].csv
+    #   [!abc]     jeden znak spoza zbioru                        [!_]*.py
+    #   **         dowolnie wiele poziomów katalogów              **/*.json
+    print(&#34;\n=== 5. glob ===&#34;)
+
+    # Wynik jest generatorem w kolejności systemu plików: żeby go wypisać,
+    # posortować, policzyć albo użyć ponownie - list(...) / sorted(...).
+    print(list(projekt.glob(&#34;*.md&#34;)))                  # pliki .md bezpośrednio w projekt/
+    print(sorted(projekt.rglob(&#34;*.py&#34;)))               # pliki .py na każdym poziomie
+    print(sorted(projekt.glob(&#34;**/*.py&#34;)))             # to samo co rglob(&#34;*.py&#34;)
+    print(sorted(projekt.glob(&#34;dane/wynik_?.csv&#34;)))    # wzorzec może obejmować katalogi
+    print(sorted(projekt.glob(&#34;dane/wynik_[12].csv&#34;))) # tylko wynik_1 i wynik_2
+    # wzorzec zakończony / zwraca tylko katalogi - wymaga Pythona &gt;= 3.11
+    print(sorted(projekt.glob(&#34;*/&#34;)))                  # tylko podkatalogi
+
+    print(len(list(projekt.rglob(&#34;*.py&#34;))))            # 3
+
+    # Nie ma składni {a,b} znanej z powłoki: dwa rozszerzenia to dwa
+    # wywołania albo filtr po suffix.
+    for plik in sorted(projekt.rglob(&#34;*&#34;)):
+        if plik.suffix in {&#34;.md&#34;, &#34;.csv&#34;}:
+            print(plik.name)
+
+    # Wielkość liter zależy od systemu (Windows nie rozróżnia, Linux tak);
+    # wymusza to argument case_sensitive - wymaga Pythona &gt;= 3.12
+    print(list(projekt.glob(&#34;*.MD&#34;, case_sensitive=False)))   # znajdzie README.md
+
+    # Dopasowanie samej nazwy, bez chodzenia po dysku:
+    print(Path(&#34;raport_2026.csv&#34;).match(&#34;raport_*.csv&#34;))      # True
+
+    # Starszy moduł glob (glob.glob(&#34;**/*.py&#34;, recursive=True)) robi to samo,
+    # ale zwraca napisy i domyślnie pomija pliki zaczynające się od kropki.</code></pre>
+</details>
+<div class="desc"><p>Szukanie plików wzorcem: <code>Path.glob</code>, <code>Path.rglob</code>, <code>Path.match</code>.</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>projekt</code></strong></dt>
+<dd>przykładowy projekt utworzony w <code><a title="pyth01_20261116.system_plikow_i_os.sekcja_4_zip" href="#pyth01_20261116.system_plikow_i_os.sekcja_4_zip">sekcja_4_zip()</a></code></dd>
+</dl></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_6_chodzenie_po_katalogach"><code class="name flex">
+<span>def <span class="ident">sekcja_6_chodzenie_po_katalogach</span></span>(<span>projekt: pathlib.Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_6_chodzenie_po_katalogach(projekt: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Trzy sposoby przejścia po drzewie katalogów: `iterdir`, `rglob(&#34;*&#34;)`, `walk`.
+
+    Args:
+        projekt: przykładowy projekt utworzony w `sekcja_4_zip`
+    &#34;&#34;&#34;
+    # Trzy poziomy: iterdir() dla jednego katalogu, rglob(&#34;*&#34;) dla całego
+    # drzewa bez ceregieli, walk() gdy trzeba pracować katalog po katalogu
+    # albo pomijać gałęzie.
+    print(&#34;\n=== 6. Chodzenie po katalogach ===&#34;)
+
+    # udajemy repozytorium, żeby było co pomijać
+    (projekt / &#34;.git&#34;).mkdir()
+    (projekt / &#34;.git&#34; / &#34;config&#34;).write_text(&#34;[core]\n&#34;, encoding=&#34;utf-8&#34;)
+
+    # --- 1. jeden poziom ---
+    for element in sorted(projekt.iterdir()):
+        if element.is_dir():
+            print(&#34;[D]&#34;, element.name)
+        else:
+            print(&#34;   &#34;, element.name)
+
+    # --- 2. całe drzewo na płasko ---
+    # rglob(&#34;*&#34;) nie umie pomijać gałęzi: przejdzie także przez .git i .venv.
+    rozmiar = 0
+    for element in projekt.rglob(&#34;*&#34;):
+        if element.is_file():
+            rozmiar += element.stat().st_size
+    print(rozmiar)                     # łączny rozmiar plików w bajtach
+
+    # --- 3. katalog po katalogu ---
+    # walk() zwraca trójki: bieżący katalog jako Path, listę NAZW podkatalogów
+    # i listę NAZW plików. Pełną ścieżkę składa się przez biezacy / nazwa.
+    # Path.walk - wymaga Pythona &gt;= 3.12 (wcześniej os.walk na napisach)
+    for biezacy, katalogi, nazwy_plikow in projekt.walk():
+        # Pomijanie gałęzi: usuwamy nazwę z listy W MIEJSCU, wtedy walk()
+        # w ogóle nie wchodzi do tego katalogu.
+        if &#34;.git&#34; in katalogi:
+            katalogi.remove(&#34;.git&#34;)
+
+        print(biezacy.relative_to(projekt))
+        for nazwa in nazwy_plikow:
+            plik = biezacy / nazwa
+            print(&#34;    &#34;, nazwa, plik.stat().st_size)
+
+    # walk(top_down=False) odwiedza najpierw najgłębsze katalogi - przydaje
+    # się przy usuwaniu pustych katalogów od dołu.</code></pre>
+</details>
+<div class="desc"><p>Trzy sposoby przejścia po drzewie katalogów: <code>iterdir</code>, <code>rglob("*")</code>, <code>walk</code>.</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>projekt</code></strong></dt>
+<dd>przykładowy projekt utworzony w <code><a title="pyth01_20261116.system_plikow_i_os.sekcja_4_zip" href="#pyth01_20261116.system_plikow_i_os.sekcja_4_zip">sekcja_4_zip()</a></code></dd>
+</dl></div>
+</dd>
+<dt id="pyth01_20261116.system_plikow_i_os.sekcja_7_os_i_sys"><code class="name flex">
+<span>def <span class="ident">sekcja_7_os_i_sys</span></span>(<span>tmp: pathlib.Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sekcja_7_os_i_sys(tmp: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Przydatne rzeczy z modułów `sys` (interpreter, argumenty, stderr)
+    i `os` (środowisko, proces, separatory, polecenie systemowe).
+
+    Args:
+        tmp: katalog roboczy
+    &#34;&#34;&#34;
+    # os odpowiada za rozmowę z systemem operacyjnym, sys za sam interpreter
+    # i sposób uruchomienia skryptu.
+    print(&#34;\n=== 7. Inne użyteczne z os i sys ===&#34;)
+
+    # --- sys ---
+    print(sys.argv)                    # argumenty z wiersza poleceń; [0] to nazwa skryptu
+    print(sys.platform)                # &#39;win32&#39;, &#39;linux&#39; albo &#39;darwin&#39;
+    print(sys.executable)              # ścieżka do interpretera (widać, czy to venv)
+    print(sys.version_info)            # wersja Pythona, do porównań: &gt;= (3, 14)
+    print(sys.path)                    # katalogi, w których Python szuka modułów
+
+    # Komunikaty o błędach wypisuj na sys.stderr, żeby nie mieszały się
+    # z wynikiem przekierowanym do pliku:
+    print(&#34;to jest komunikat na stderr&#34;, file=sys.stderr)
+
+    # sys.exit(kod) kończy program; kod różny od 0 oznacza błąd.
+    # Tutaj tylko w komentarzu, żeby demo doszło do końca:
+    #     if len(sys.argv) &lt; 2:
+    #         print(&#34;Użycie: skrypt.py KATALOG&#34;, file=sys.stderr)
+    #         sys.exit(1)
+    # Do czegoś więcej niż jeden-dwa argumenty lepiej użyć modułu argparse.
+
+    # --- os ---
+    # Zmienne środowiskowe jako słownik; .get(nazwa, domyślna) nie rzuca błędu.
+    print(os.environ.get(&#34;BACKUP_DIR&#34;, &#34;brak zmiennej BACKUP_DIR&#34;))
+    print(os.cpu_count())              # liczba rdzeni
+    print(os.getpid())                 # identyfikator bieżącego procesu
+    print(repr(os.sep))                # separator katalogów: &#39;\\&#39; albo &#39;/&#39;
+    print(repr(os.pathsep))            # separator wpisów w PATH: &#39;;&#39; albo &#39;:&#39;
+    print(repr(os.linesep))            # koniec linii: &#39;\r\n&#39; albo &#39;\n&#39;
+    print(os.access(tmp, os.W_OK))     # czy mamy prawo zapisu (R_OK odczyt, X_OK wykonanie)
+    print(os.getcwd())                 # bieżący katalog jako napis - to samo co Path.cwd()
+
+    # os.chdir(p) zmienia bieżący katalog dla CAŁEGO procesu, a więc znaczenie
+    # wszystkich ścieżek względnych. Bezpieczniej budować ścieżki bezwzględne
+    # - ten skrypt nie woła chdir ani razu.
+
+    # os.startfile(p) otwiera plik lub katalog w domyślnym programie
+    # (tylko Windows). W demo niewywoływane:
+    #     if sys.platform == &#34;win32&#34;:
+    #         os.startfile(tmp)
+
+    # Funkcje z os.path (join, basename, splitext, exists) to starszy
+    # odpowiednik rzeczy z bloku 1; w nowym kodzie zastępuje je Path.
+
+    # Polecenie systemowe
+    # os.system przekazuje napis do powłoki systemu (tu: cmd.exe, polecenie dir)
+    # i zwraca kod wyjścia; do czegoś poważniejszego - moduł subprocess
+    os.system(&#39;dir&#39;)</code></pre>
+</details>
+<div class="desc"><p>Przydatne rzeczy z modułów <code>sys</code> (interpreter, argumenty, stderr)
+i <code>os</code> (środowisko, proces, separatory, polecenie systemowe).</p>
+<dl>
+<dt>Args</dt>
+<dt>-----=</dt>
+<dt><strong><code>tmp</code></strong></dt>
+<dd>katalog roboczy</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyth01_20261116" href="index.html">pyth01_20261116</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="pyth01_20261116.system_plikow_i_os.NAZWA_TMP" href="#pyth01_20261116.system_plikow_i_os.NAZWA_TMP">NAZWA_TMP</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pyth01_20261116.system_plikow_i_os.main" href="#pyth01_20261116.system_plikow_i_os.main">main</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.przygotuj_katalog_roboczy" href="#pyth01_20261116.system_plikow_i_os.przygotuj_katalog_roboczy">przygotuj_katalog_roboczy</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_1_sciezki" href="#pyth01_20261116.system_plikow_i_os.sekcja_1_sciezki">sekcja_1_sciezki</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_2_czytanie_i_pisanie" href="#pyth01_20261116.system_plikow_i_os.sekcja_2_czytanie_i_pisanie">sekcja_2_czytanie_i_pisanie</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_3_operacje_na_plikach" href="#pyth01_20261116.system_plikow_i_os.sekcja_3_operacje_na_plikach">sekcja_3_operacje_na_plikach</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_4_zip" href="#pyth01_20261116.system_plikow_i_os.sekcja_4_zip">sekcja_4_zip</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_5_glob" href="#pyth01_20261116.system_plikow_i_os.sekcja_5_glob">sekcja_5_glob</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_6_chodzenie_po_katalogach" href="#pyth01_20261116.system_plikow_i_os.sekcja_6_chodzenie_po_katalogach">sekcja_6_chodzenie_po_katalogach</a></code></li>
+<li><code><a title="pyth01_20261116.system_plikow_i_os.sekcja_7_os_i_sys" href="#pyth01_20261116.system_plikow_i_os.sekcja_7_os_i_sys">sekcja_7_os_i_sys</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

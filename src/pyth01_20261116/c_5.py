@@ -18,10 +18,13 @@
 
 if __name__ == '__main__':
     rok = int(input('Podaj rok: '))
+    # wynik porównania to obiekt bool - można go zapisać do zmiennej
+    # i nadać mu czytelną nazwę
     d400 = rok % 400 == 0
     d4 = rok % 4 == 0
     d100 = rok % 100 == 0
 
+    # and wiąże mocniej niż or, więc czyta się to: d400 or (d4 and not d100)
     if d400 or d4 and not d100:
         print('przestępny')
     else:

@@ -1,2 +1,6 @@
 /.venv/
-/.idea/deployment.xml
+/.idea/
+__pycache__/
+/src/pyth01_20261116/dane.json
+/src/pyth01_20261116/dane.pickle
+/src/pyth01_20261116/tmp.txt

@@ -40,6 +40,11 @@ SUMA - 7 znaków przed kropką i 2 po
 Podpowiedzi:
  - pętla for
  - formatowanie f-stringow
+
+Wersja 2 (dwuprzebiegowa): najpierw wczytanie do listy rekordów, potem
+osobna pętla budująca paragon. Rozdzielenie czytania danych od ich
+przetwarzania to pierwszy krok do funkcji z `c_8_2.py`.
+Skrypt czyta `towary.txt` z bieżącego katalogu.
 """
 from pprint import pprint
 
@@ -59,12 +64,15 @@ if __name__ == '__main__':
             cena = float(cena)
 
             # TU !!!
+            # rekord = lista o stałym układzie pól (patrz listy_krotki.py)
             rekord = [towar, ilosc, jm, cena]
 
             lista_rekordow.append(rekord)
 
+    # pprint - "pretty print", czytelnie wypisuje zagnieżdżone struktury
     pprint(lista_rekordow)
 
+    # unpacking każdego rekordu bezpośrednio w nagłówku pętli
     for towar, ilosc, jm, cena in lista_rekordow:
         # policzyć wartosc
         wartosc = round(ilosc * cena, 2)

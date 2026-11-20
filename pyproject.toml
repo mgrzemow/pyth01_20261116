@@ -1,15 +1,16 @@
 [project]
 name = "pyth01-20261116"
 version = "0.1.0"
-description = "Add your description here"
+description = "Materiały z 5-dniowego kursu Pythona - notatki i ćwiczenia (Michał Grzemowski)"
 readme = "README.md"
+license = "CC-BY-NC-SA-4.0"
+license-files = ["LICENSE"]
 authors = [
     { name = "Michał Grzemowski", email = "mgrzemow@gmail.com" }
 ]
 requires-python = ">=3.14"
 dependencies = [
     "faker>=40.54.0",
-    "pdoc3>=0.11.6",
     "requests>=2.34.2",
 ]
 
@@ -19,3 +20,14 @@ pyth01-20261116 = "pyth01_20261116:main"
 [build-system]
 requires = ["uv_build>=0.13.8,<0.14.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+# artefakty uruchomienia skryptow (json_dlaczego_kochamy.py, pliki.py) nie trafiaja do pakietu;
+# pliki z danymi do cwiczen (towary.txt itd.) zostaja
+source-exclude = ["src/pyth01_20261116/dane.json", "src/pyth01_20261116/dane.pickle", "src/pyth01_20261116/tmp.txt"]
+wheel-exclude = ["pyth01_20261116/dane.json", "pyth01_20261116/dane.pickle", "pyth01_20261116/tmp.txt"]
+
+[dependency-groups]
+dev = [
+    "pdoc3>=0.11.6",
+]
