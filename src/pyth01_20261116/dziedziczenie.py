@@ -1,16 +1,24 @@
+import faker
 class Pracownik:
-    def __init__(self, imie, stawka_norm, stawka_nad):
+    __slots__ = [
+        'imie',
+        '_stawka_norm',
+        '_stawka_nad',
+        '_konto',
+    ]
+
+    def __init__(self, *, imie, stawka_norm, stawka_nad):
         self.imie = imie
-        self.stawka_norm = stawka_norm
-        self.stawka_nad = stawka_nad
+        self._stawka_norm = stawka_norm
+        self._stawka_nad = stawka_nad
         self._konto = 0
 
     def pracuj(self, ile_h):
         print('Pracuje jako Pracownik')
         if ile_h > 8:
-            self._konto += 8 * self.stawka_norm + (ile_h - 8) * self.stawka_nad
+            self._konto += 8 * self._stawka_norm + (ile_h - 8) * self._stawka_nad
         else:
-            self._konto += ile_h * self.stawka_norm
+            self._konto += ile_h * self._stawka_norm
 
     def wyplata(self):
         tmp = self._konto
@@ -19,24 +27,48 @@ class Pracownik:
 
 
 class Kierownik(Pracownik):
-    def __init__(self, imie, stawka_norm, stawka_nad, bonus_kier):
-        super().__init__(imie, stawka_norm, stawka_nad)
-        self.bonus_kier = bonus_kier
+    __slots__ = [
+        '_bonus_kier'
+    ]
+
+    def __init__(self, *, bonus_kier, **kwargs):
+        super().__init__(**kwargs)
+        self._bonus_kier = bonus_kier
 
     def pracuj(self, ile_h):
         super().pracuj(ile_h)
         print('Pracuje jako Kierownik')
         if ile_h >= 10:
-            self._konto += self.bonus_kier
+            self._konto += self._bonus_kier
+
 
 class Dyrektor(Kierownik):
+    __slots__ = [
+        '_bonus_dyr'
+    ]
+
     # dodatkowy bonus kwotowy bonus_dyr za każde wywołanie metody pracuj
-    ...
+    def __init__(self, *, bonus_dyr, **kwargs):
+        super().__init__(**kwargs)
+        self._bonus_dyr = bonus_dyr
+
+    def pracuj(self, ile_h):
+        super().pracuj(ile_h)
+        print('Pracuje jako Dyrektor')
+        self._konto += self._bonus_dyr
+
+def zatrudnij_zespol(ile_p, ile_k, ile_d):
+    f = faker.Faker('PL_pl')
+    f.first_name()
+    lista_p = []
+    # ToDo
+    return lista_p
 
 if __name__ == '__main__':
-    p1 = Dyrektor('Jan', stawka_norm=20, stawka_nad=40, bonus_kier=300, bonus_dyr=500)
-    print(p1.wyplata())  # 0
-    p1.pracuj(5)  # nalizy mu się 5 * 20 + 500 = 100, stan konta 600
-    p1.pracuj(10)  # nalizy mu się 8 * 20 + 2 * 40 + 300 + 500 = 1040, stan konta 1640
-    print(p1.wyplata())  # 340
-    print(p1.wyplata())  # 0
+    lp = zatrudnij_zespol(10, 3, 1)
+    for p in lp:
+        p.pracuj(4)
+        p.pracuj(9)
+        p.pracuj(12)
+    fundusz_plac = sum([p.wyplata() for p in lp])
+    print(fundusz_plac)
