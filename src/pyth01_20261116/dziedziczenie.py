@@ -34,9 +34,9 @@ class Dyrektor(Kierownik):
     ...
 
 if __name__ == '__main__':
-    p1 = Kierownik('Jan', stawka_norm=20, stawka_nad=40, bonus_kier=300)
+    p1 = Dyrektor('Jan', stawka_norm=20, stawka_nad=40, bonus_kier=300, bonus_dyr=500)
     print(p1.wyplata())  # 0
-    p1.pracuj(5)  # nalizy mu się 5 * 20 = 100, stan konta 100
-    p1.pracuj(10)  # nalizy mu się 8 * 20 + 2 * 40 + 300 = 540, stan konta 340
+    p1.pracuj(5)  # nalizy mu się 5 * 20 + 500 = 100, stan konta 600
+    p1.pracuj(10)  # nalizy mu się 8 * 20 + 2 * 40 + 300 + 500 = 1040, stan konta 1640
     print(p1.wyplata())  # 340
     print(p1.wyplata())  # 0
