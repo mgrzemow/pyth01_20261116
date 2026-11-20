@@ -13,8 +13,18 @@ koszyk_walut = [
 # ** jak czytać jednocześnie?
 
 def wycen_koszyk(koszyk_walut: list[tuple[str, float]]) -> float:
-    ...
-
+    url_szablon = 'https://api.nbp.pl/api/exchangerates/rates/a/{}/?format=json'
+    suma  = 0
+    for waluta, kwota in koszyk_walut:
+        # przygotuj url
+        url = url_szablon.format(waluta)
+        # wczytaj kurs
+        response = requests.get(url)
+        response.raise_for_status()
+        kurs = response.json()['rates'][0]['mid']
+        # dolicz do sumy
+        suma = round(suma + kurs * kwota, 2)
+    return suma
 
 if __name__ == '__main__':
     w = wycen_koszyk(koszyk_walut)
