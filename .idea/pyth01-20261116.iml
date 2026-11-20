@@ -8,4 +8,9 @@
     <orderEntry type="jdk" jdkName="uv (pyth01_20261116)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyDocumentationSettings">
+    <option name="format" value="GOOGLE" />
+  </component>
+  <component name="ReSTService" />
+  <component name="TestRunnerService" />
 </module>
