@@ -14,7 +14,7 @@ class Pracownik:
         self._konto = 0
 
     def pracuj(self, ile_h):
-        print('Pracuje jako Pracownik')
+        # print('Pracuje jako Pracownik')
         if ile_h > 8:
             self._konto += 8 * self._stawka_norm + (ile_h - 8) * self._stawka_nad
         else:
@@ -37,7 +37,7 @@ class Kierownik(Pracownik):
 
     def pracuj(self, ile_h):
         super().pracuj(ile_h)
-        print('Pracuje jako Kierownik')
+        # print('Pracuje jako Kierownik')
         if ile_h >= 10:
             self._konto += self._bonus_kier
 
@@ -54,14 +54,30 @@ class Dyrektor(Kierownik):
 
     def pracuj(self, ile_h):
         super().pracuj(ile_h)
-        print('Pracuje jako Dyrektor')
+        # print('Pracuje jako Dyrektor')
         self._konto += self._bonus_dyr
 
 def zatrudnij_zespol(ile_p, ile_k, ile_d):
+    """
+    Tak naprawdę to jest design pattern factory.
+
+    Args:
+        ile_p:
+        ile_k:
+        ile_d:
+
+    Returns:
+
+    """
+
     f = faker.Faker('PL_pl')
-    f.first_name()
     lista_p = []
-    # ToDo
+    for _ in range(ile_p):
+        lista_p.append(Pracownik(imie=f.name(), stawka_norm=20, stawka_nad=40))
+    for _ in range(ile_k):
+        lista_p.append(Kierownik(imie=f.name(), stawka_norm=20, stawka_nad=40, bonus_kier=100))
+    for _ in range(ile_d):
+        lista_p.append(Dyrektor(imie=f.name(), stawka_norm=20, stawka_nad=40, bonus_kier=100, bonus_dyr=500))
     return lista_p
 
 if __name__ == '__main__':
